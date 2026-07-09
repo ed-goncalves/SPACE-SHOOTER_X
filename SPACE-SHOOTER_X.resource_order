@@ -10,8 +10,6 @@
     {"name":"obj_vfx_shot","order":3,"path":"objects/obj_vfx_shot/obj_vfx_shot.yy",},
     {"name":"rm_level","order":1,"path":"rooms/rm_level/rm_level.yy",},
     {"name":"rm_tutorial","order":2,"path":"rooms/rm_tutorial/rm_tutorial.yy",},
-    {"name":"sqn_wave2","order":1,"path":"sequences/sqn_wave2/sqn_wave2.yy",},
-    {"name":"sqn_wave3","order":2,"path":"sequences/sqn_wave3/sqn_wave3.yy",},
     {"name":"Darkling","order":1,"path":"sounds/Darkling/Darkling.yy",},
     {"name":"Full_On","order":2,"path":"sounds/Full_On/Full_On.yy",},
     {"name":"sfx_laser1","order":1,"path":"sounds/sfx_laser1/sfx_laser1.yy",},

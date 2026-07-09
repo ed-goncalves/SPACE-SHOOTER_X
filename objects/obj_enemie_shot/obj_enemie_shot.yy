@@ -30,7 +30,7 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"_dmg","filters":[],"listItems":[],"multiselect":false,"name":"_dmg","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":1,},
-    {"$GMObjectProperty":"v2","%Name":"_skin","filters":[],"listItems":[],"multiselect":false,"name":"_skin","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"","varType":5,},
+    {"$GMObjectProperty":"v2","%Name":"_skin","filters":[],"listItems":[],"multiselect":false,"name":"_skin","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resource":{"name":"spr_enemie_shot1_s","path":"sprites/spr_enemie_shot1_s/spr_enemie_shot1_s.yy",},"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"spr_enemie_shot1_s","varType":5,},
     {"$GMObjectProperty":"v2","%Name":"_size","filters":[],"listItems":[],"multiselect":false,"name":"_size","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"_spd","filters":[],"listItems":[],"multiselect":false,"name":"_spd","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"_prox_ray","filters":[],"listItems":[],"multiselect":false,"name":"_prox_ray","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"10","varType":0,},
