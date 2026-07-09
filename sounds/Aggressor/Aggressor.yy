@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Aggressor",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":238.86368,
+  "exportDir":"",
+  "name":"Aggressor",
+  "parent":{
+    "name":"Musics",
+    "path":"folders/Sounds/Musics.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Aggressor.mp3",
+  "volume":1.0,
+}

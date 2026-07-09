@@ -1,0 +1,26 @@
+{
+  "$GMSound":"v2",
+  "%Name":"Full_On",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "channelFormat":0,
+  "compression":0,
+  "compressionQuality":4,
+  "conversionMode":0,
+  "duration":155.68979,
+  "exportDir":"",
+  "name":"Full_On",
+  "parent":{
+    "name":"Musics",
+    "path":"folders/Sounds/Musics.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"Full_On.mp3",
+  "volume":1.0,
+}
