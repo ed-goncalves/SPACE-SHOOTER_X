@@ -4,15 +4,15 @@ randomise();
 
 #region Metodos
 
-// Controle de waves
-//alarm[0] = 60;
-//_waves = [sqn_wave1, sqn_wave2, sqn_wave3];
-//_index = choose(0, 1, 2);
-//WaveSpnw = function()
-//{
-//	layer_sequence_create("Waves", 0, 0, _waves[_index]);
-//}
+//Controle de waves
+alarm[0] = 180;
+
+
+WaveSpnw = function()
+{
+	instance_create_layer(random_range(-208, 496), -150, "Enemies", obj_enemie_1);
+}
 #endregion
 
 
-// spawn y = -80.
+
