@@ -54,6 +54,7 @@
   "resources":[
     {"id":{"name":"Créditos das Musicas","path":"notes/Créditos das Musicas/Créditos das Musicas.yy",},},
     {"id":{"name":"obj_controller","path":"objects/obj_controller/obj_controller.yy",},},
+    {"id":{"name":"obj_enemie_1","path":"objects/obj_enemie_1/obj_enemie_1.yy",},},
     {"id":{"name":"obj_enemie_shot","path":"objects/obj_enemie_shot/obj_enemie_shot.yy",},},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_power_up","path":"objects/obj_power_up/obj_power_up.yy",},},
