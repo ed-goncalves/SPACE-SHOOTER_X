@@ -5,7 +5,7 @@ randomise();
 #region Metodos
 
 //Controle de waves
-alarm[0] = 180;
+//alarm[0] = 180;
 
 
 WaveSpnw = function()

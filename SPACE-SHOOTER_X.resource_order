@@ -2,10 +2,12 @@
   "FolderOrderSettings":[],
   "ResourceOrderSettings":[
     {"name":"obj_enemie_1","order":3,"path":"objects/obj_enemie_1/obj_enemie_1.yy",},
+    {"name":"obj_enemie_2","order":4,"path":"objects/obj_enemie_2/obj_enemie_2.yy",},
     {"name":"obj_player","order":2,"path":"objects/obj_player/obj_player.yy",},
     {"name":"obj_power_up","order":1,"path":"objects/obj_power_up/obj_power_up.yy",},
     {"name":"obj_shield","order":2,"path":"objects/obj_shield/obj_shield.yy",},
     {"name":"obj_shot","order":3,"path":"objects/obj_shot/obj_shot.yy",},
+    {"name":"obj_vfx_charge_shot","order":4,"path":"objects/obj_vfx_charge_shot/obj_vfx_charge_shot.yy",},
     {"name":"obj_vfx_player_death","order":1,"path":"objects/obj_vfx_player_death/obj_vfx_player_death.yy",},
     {"name":"obj_vfx_powerup","order":2,"path":"objects/obj_vfx_powerup/obj_vfx_powerup.yy",},
     {"name":"obj_vfx_shot","order":3,"path":"objects/obj_vfx_shot/obj_vfx_shot.yy",},

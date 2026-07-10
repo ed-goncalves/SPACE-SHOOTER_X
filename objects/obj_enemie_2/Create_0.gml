@@ -9,7 +9,7 @@ _alfa = noone; // Identificação do lider?
 _shot_delay = 60; // Contado de spawn
 _shot_timer = 0; // Timer de tiro
 _state_timer = 0; // Timer de permanencia de estado
-_stay = 5; // Multiplicador de tempo de permanencia em segundos
+_stay = 10; // Multiplicador de tempo de permanencia em segundos
 
 
 #region Metodos
@@ -28,12 +28,17 @@ HpDown = function(_dmg = 1)
 
 Attack = function()
 {
-	
 	// Aplicação dos sistemas
-	if (_shot_timer > -1) { _shot_timer --; }
+	if (_shot_timer > -1) 
+	{ 
+		_on = true;
+		_shot_timer --; 
+	}
+	
 	if (_shot_timer <= 0)
 	{
-		Projectile(spr_enemie_shot1_c, 5, 1, "Strait", 20, _dmg);
+		Projectile(spr_enemie_shot2_c, 8, 1.2, "Follow", 20, _dmg); 
+		_on = false;
 		_shot_timer = (_shot_delay / _atk_spd);
 	}
 	
@@ -43,7 +48,7 @@ ResetPosition = function()
 {
 	// Reset da posiçã
 	_xposition = random_range( 80, 208); // Definição de posição alvo em X
-	_yposition = random_range( 64, 240); // Definição de posição alvo em Y
+	_yposition = random_range( 64, 150); // Definição de posição alvo em Y
 	
 }
 
@@ -76,31 +81,6 @@ Enemie_Stm = function()
 		}
 		break;
 		
-		case "Hover" : // Movimento suave enquanto ataca
-		{
-			//// Deslocamento para posição alvo com speed
-			direction = point_direction(x, y, _xposition, _yposition);
-			speed = _spd * 4;
-			
-			//// Deslocamento para posição alvo com lerp
-			//x = lerp( x, _xposition, _spd / 5);
-			//y = lerp( y, _yposition, _spd / 5);
-	
-			// Execução do ataque
-			Attack();
-			
-			// Atualização de estado apos a conclusão do movimento
-			if (round(x) = round(_xposition) && round(y) = round(_yposition)) 
-			{
-				speed = 0;
-				ResetPosition();
-				_state_timer = _shot_delay * _stay;
-				_state = choose("Hover", "Reposition", "Attack", "Leave");
-			}
-			
-		}
-		break;
-		
 		case "Attack" : // Ataque simples enquanto parado
 		{
 			// Iniciando comportamento de ataque caso o player esteja vivo
@@ -114,11 +94,11 @@ Enemie_Stm = function()
 			}
 			
 			// Troca de estado
-			if (_state_timer <= 0) 
+			if (_state_timer <= 0 && _on = false) 
 			{
 				ResetPosition();
-				_state_timer = _shot_delay * 5;
-				_state = choose("Hover", "Reposition", "Leave");
+				_state_timer = _shot_delay * 10;
+				_state = choose("Reposition", "Leave");
 			}
 			
 		}
@@ -127,8 +107,8 @@ Enemie_Stm = function()
 		case "Reposition" : // Somente movimento para nova posição
 		{
 			// Deslocamento para posição alvo
-			x = lerp( x, _xposition, _spd / 2);
-			y = lerp( y, _yposition, _spd / 2);
+			x = lerp( x, _xposition, _spd / 3);
+			y = lerp( y, _yposition, _spd / 3);
 			
 			// Atualização de estado apos  a conclusão do movimento
 			if (round(x) = round(_xposition) && round(y) = round(_yposition))
