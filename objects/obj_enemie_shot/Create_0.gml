@@ -2,7 +2,7 @@
 
 // Variáveis
 	
-_key = true;
+_active = true;
 
 // Parametros
 
@@ -32,29 +32,30 @@ StateMachine = function()
 		
 		case "Follow": 
 		{
-			if (global._player_alive && _key) // Movimento teleguiado
+			if (global._player_alive && _active) // Movimento teleguiado
 			{
 				// Armazena a posição do player em relação ao tiro
 				var _trgt = point_direction(x, y, obj_player.x, obj_player.y);
 				direction = _trgt;
 				image_angle = _trgt + 90;
-				_key = false
+				_active = false
 			}
 		}
 		break;
 		
 		case "Track": 
 		{
-			if (global._player_alive) // Movimento teleguiado
+			if (global._player_alive && _active) // Movimento teleguiado
 			{
 				// Armazena a posição do player em relação ao tiro
 				var _trgt = point_direction(x, y, obj_player.x, obj_player.y);
 		
 				// Direciona o disparo para o player até certa distância
-				if (y < obj_player.y - _prox_ray)
+				direction = _trgt;
+				image_angle = _trgt + 90;
+				if (collision_circle(x, y, 50, obj_player, 0, 0))
 				{
-					direction = _trgt;
-					image_angle = _trgt + 90;
+					_active = false;
 				}
 			}
 		}
