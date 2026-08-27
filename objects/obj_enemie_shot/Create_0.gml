@@ -21,7 +21,7 @@ speed = _spd;
 
 StateMachine = function()
 {	
-	show_debug_message(_size);
+	//show_debug_message(_size);
 	switch _behv
 	{
 		case "Strait": 

@@ -2,16 +2,22 @@
 // Randomização
 randomise();
 
+_wave = 1;
+//_wave_count = [5, 10, 15, 20];
+
 #region Metodos
 
 //Controle de waves
-//alarm[0] = 180;
+alarm[0] = 180;
 
-
-WaveSpnw = function()
+WaveSpawn = function(_type, _ldr = true, _xpos = random_range(-192, 464))
 {
-	instance_create_layer(random_range(-208, 496), -150, "Enemies", obj_enemie_1);
+	var _id = instance_create_layer(_xpos, -96, "Enemies", _type,
+	{
+		_leader : _ldr, 
+	});
 }
+
 #endregion
 
 

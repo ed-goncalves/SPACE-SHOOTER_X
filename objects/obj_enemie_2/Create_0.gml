@@ -59,25 +59,25 @@ Enemie_Stm = function()
 		case "Enter" : // Movimentação inicial
 		{
 			if(_leader) // Movimentação inicial do lider
-			{
+			{	
+				// Registro da identificação do lider na variavel global.
+				global._ldr = id;
 			
-			// Armazenamento de ID
-			_alfa = layer_instance_get_instance(self);
-			// Deslocamento para posição alvo
-			x = lerp( x, _xposition, _spd);
-			y = lerp( y, _yposition, _spd);
+				// Armazenamento de ID
+				_alfa = layer_instance_get_instance(self);
+				
+				// Deslocamento para posição alvo
+				x = lerp( x, _xposition, _spd);
+				y = lerp( y, _yposition, _spd);
 			
-			}
-			// Atualização de estado apos  a conclusão do movimento
-			if (round(x) = round(_xposition) && round(y) = round(_yposition)) 
-			{
-				ResetPosition();
-				_state_timer = _shot_delay * _stay;
-				_state = "Attack";
-			}
-			
-			// Movimentação inicial dos inimigos auxiliares
-			// Ainda a implementar
+				// Atualização de estado apos  a conclusão do movimento
+				if (round(x) = round(_xposition) && round(y) = round(_yposition)) 
+				{
+					ResetPosition();
+					_state_timer = _shot_delay * _stay;
+					_state = "Attack";
+				}
+			}	
 		}
 		break;
 		

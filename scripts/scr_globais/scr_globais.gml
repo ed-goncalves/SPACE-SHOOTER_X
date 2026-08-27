@@ -6,6 +6,9 @@ global._debug = false;
 global._player_alive = false;
 global._score = 0;
 global._math = 0;
+global._ldr = noone;
+
+
 
 
 #endregion
@@ -46,13 +49,14 @@ function Projectile(_sprite, _velocity = 1, _scale = 1, _type = "Strait", _toler
 	//
 	var _shot = instance_create_layer(x - 4, y + 5, "Props", obj_enemie_shot,
 	{
-	_skin : _sprite, 
-	_spd : _velocity,
-	_size : _scale,
-	_behv : _type,
-	_prox_ray : _tolerance,
-	_dmg : _damage
+		_skin : _sprite, 
+		_spd : _velocity,
+		_size : _scale,
+		_behv : _type,
+		_prox_ray : _tolerance,
+		_dmg : _damage
 	});
 }
+
 
 #endregion

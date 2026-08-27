@@ -5,11 +5,18 @@
 
 _reward = random_range(0, 1); // Chance de drop para cada instancia.
 _leaving = true; // Limitador de execução
-_alfa = noone; // Identificação do lider?
 _shot_delay = 60; // Contado de spawn
 _shot_timer = 0; // Timer de tiro
 _state_timer = 0; // Timer de permanencia de estado
 _stay = 5; // Multiplicador de tempo de permanencia em segundos
+
+// Parametros de movimentação em orbita
+_trgt = noone; // Alvo a ser seguido
+_dist= 70; // Raio da órbita em pixels
+_angl = 0; // Ângulo atual da órbita
+_orbit = 2; // Quantos graus gira por passo
+
+
 
 
 #region Metodos
@@ -55,24 +62,32 @@ Enemie_Stm = function()
 		{
 			if(_leader) // Movimentação inicial do lider
 			{
+				// Registro da identificação do lider na variavel global.
+				global._ldr = id;
+				
+				// Deslocamento para posição alvo
+				x = lerp( x, _xposition, _spd);
+				y = lerp( y, _yposition, _spd);
 			
-			// Armazenamento de ID
-			_alfa = layer_instance_get_instance(self);
-			// Deslocamento para posição alvo
-			x = lerp( x, _xposition, _spd);
-			y = lerp( y, _yposition, _spd);
+				// Atualização de estado apos a conclusão do movimento
+				if (round(x) = round(_xposition) && round(y) = round(_yposition)) 
+				{
+					ResetPosition();
+					_state_timer = _shot_delay * _stay;
+					_state = "Attack";
+				}
 			
+				// Movimentação inicial dos inimigos auxiliares
+				// Ainda a implementar
 			}
-			// Atualização de estado apos  a conclusão do movimento
-			if (round(x) = round(_xposition) && round(y) = round(_yposition)) 
-			{
-				ResetPosition();
-				_state_timer = _shot_delay * _stay;
-				_state = "Attack";
+			else 
+			{ 
+				//// Inicialização do ângulo e deslocamento para o lider
+				_trgt = global._ldr;
+				_angl = point_direction(_trgt.x, _trgt.y, x, y) 
+				_state = "Orbit";
 			}
 			
-			// Movimentação inicial dos inimigos auxiliares
-			// Ainda a implementar
 		}
 		break;
 		
@@ -98,6 +113,29 @@ Enemie_Stm = function()
 				_state = choose("Hover", "Reposition", "Attack", "Leave");
 			}
 			
+		}
+		break;
+		
+		case "Orbit" : // Movimento de orbita em torno de um lider
+		{
+			if (instance_exists(_trgt)) 
+			{
+				_angl += _orbit;
+				_angl %= 360;
+				
+				var _ang_y = _trgt.y + lengthdir_y(_dist, _angl);
+				var _ang_x = _trgt.x + lengthdir_x(_dist, _angl);
+				
+				x = lerp(x, _ang_x, .1);
+				y = lerp(y, _ang_y, .1);
+				
+				// Execução do ataque
+				if (global._player_alive)  {Attack(); }
+			}
+			else { _state = choose("Reposition", "Leave"); }
+			
+			
+				
 		}
 		break;
 		
@@ -154,7 +192,7 @@ Enemie_Stm = function()
 			x = lerp( x, _xposition, _spd / 5);
 			y = lerp( y, _yposition, _spd / 5);
 			
-			// Atualização de estado apos  a conclusão do movimento
+			// Atualização de estado apos  a conclusão do movimento - tentar faze com que a instancia seja destruida mais rapido
 			if (round(x) = round(_xposition) && round(y) = round(_yposition))
 			{
 				show_debug_message("Morri");

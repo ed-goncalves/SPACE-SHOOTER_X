@@ -29,7 +29,7 @@
   "physicsStartAwake":true,
   "properties":[
     {"$GMObjectProperty":"v2","%Name":"_state","filters":[],"listItems":[],"multiselect":false,"name":"_state","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"Enter","varType":2,},
-    {"$GMObjectProperty":"v2","%Name":"_spd","filters":[],"listItems":[],"multiselect":false,"name":"_spd","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":".07","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"_spd","filters":[],"listItems":[],"multiselect":false,"name":"_spd","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":".05","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"_life","filters":[],"listItems":[],"multiselect":false,"name":"_life","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"3","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"_atk_spd","filters":[],"listItems":[],"multiselect":false,"name":"_atk_spd","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"_dmg","filters":[],"listItems":[],"multiselect":false,"name":"_dmg","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1","varType":0,},
