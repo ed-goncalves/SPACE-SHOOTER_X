@@ -6,4 +6,6 @@ WaveSpawn();
 WaveTimer();
 
 
+show_debug_message(_wave);
 show_debug_message(_wave_count);
+show_debug_message(_wave_stack);

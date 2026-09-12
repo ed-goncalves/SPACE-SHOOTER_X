@@ -64,7 +64,7 @@ Enemie_Stm = function()
 	{
 		case "Enter" : // Movimentação inicial
 		{
-			// Inicialização o visual do inimigo
+			// Inicialização de cada tipo de inimigo
 			if (_enm_typ = "red") 
 			{
 				sprite_index = _skins[0];
@@ -123,9 +123,17 @@ Enemie_Stm = function()
 			{ 
 				//// Inicialização do ângulo e deslocamento para o lider
 				_trgt = global._ldr;
-				if (instance_exists(_trgt)) {	_angl = point_direction(_trgt.x, _trgt.y, x, y) }
-				//_angl = point_direction(_trgt.x, _trgt.y, x, y) 
-				_state = "Orbit";
+				if (instance_exists(_trgt)) 
+				{	
+					_angl = point_direction(_trgt.x, _trgt.y, x, y); 
+					_state = "Orbit";
+				}
+				else 
+				{
+					_state = "Reposition";
+				}
+				
+				
 			}
 			
 		}
@@ -218,8 +226,8 @@ Enemie_Stm = function()
 		case "Reposition" : // Somente movimento para nova posição
 		{
 			// Deslocamento para posição alvo
-			x = lerp( x, _xposition, _spd / 2);
-			y = lerp( y, _yposition, _spd / 2);
+			x = lerp( x, _xposition, _spd );
+			y = lerp( y, _yposition, _spd );
 			
 			// Atualização de estado apos  a conclusão do movimento
 			if (round(x) = round(_xposition) && round(y) = round(_yposition))

@@ -10,7 +10,7 @@ randomise();
 _wave = 0; // Variável das waves, aumenta contínuamente.
 _wave_stack = 0; // Contador de grupos de waves - controla a quantidade de inimigos criados por vez.
 _wave_count = 0; // Grupo de waves representando os níveis para aumentar a dificuldade.
-_seconds = 8; // Definição dos segundos.
+_seconds = 6 // Definição dos segundos.
 _timer = 0; // Definição de tempo = 60 frames X Qnt de segundos.
 _time_up = 0;
 _actv_key = true; // Chave de ativação para controle do spawn.
@@ -139,7 +139,7 @@ WaveSpawn = function()
 				var i = instance_create_layer(irandom_range(-192, 448), irandom_range(-80, -224), "Enemies", obj_enemie,
 						{
 							_spd : .02,
-							_life : 10,
+							_life : 20,
 							_atk_spd : .5,
 							_dmg : 3,
 							_leader : true,
@@ -151,7 +151,7 @@ WaveSpawn = function()
 			}
 			if ( _actv_key ) 
 			{ 
-				repeat (_wave_stack -1) 
+				repeat (_wave_stack) 
 				{
 					instance_create_layer(random_range(-192, 448), irandom_range(-80, -224), "Enemies", obj_enemie,
 					{
@@ -179,7 +179,7 @@ WaveSpawn = function()
 				instance_create_layer(irandom_range(-192, 448), irandom_range(-80, -224), "Enemies", obj_enemie,
 				{
 					_spd : .02,
-					_life : 50,
+					_life : 60,
 					_atk_spd : .5,
 					_dmg : 3,
 					_leader : true,
@@ -245,15 +245,16 @@ WaveTimer = function()
 	{
 		_time_up = 0;
 		_wave ++;
+		_actv_key = true;
 		if (_wave_stack < 5) 
 		{ 
-			_wave_stack ++;
-			_actv_key = true;	
+			_wave_stack ++;	
 		}
 		else 
 		{ 
 			_wave_count += _wave_stack; 
 			_wave_stack = 1;
+			_boss = true;
 		}
 	}
 }
