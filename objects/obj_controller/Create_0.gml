@@ -17,7 +17,7 @@ _actv_key = true; // Chave de ativação para controle do spawn.
 _boss = true; // Limitador do spawn do boss
 
 
-#region // Teste com status em variáveis
+#region // Status dos inimigos em variáveis testar futuramente.
 // Definição dos stats dos inimigos.
 
 _stt_hp = noone; // Vida do inimigo.
