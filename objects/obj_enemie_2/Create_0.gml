@@ -5,7 +5,6 @@
 
 _reward = random_range(0, 1); // Chance de drop para cada instancia.
 _leaving = true; // Limitador de execução
-_alfa = noone; // Identificação do lider?
 _shot_delay = 60; // Contado de spawn
 _shot_timer = 0; // Timer de tiro
 _state_timer = 0; // Timer de permanencia de estado
@@ -63,9 +62,6 @@ Enemie_Stm = function()
 				// Registro da identificação do lider na variavel global.
 				global._ldr = id;
 			
-				// Armazenamento de ID
-				_alfa = layer_instance_get_instance(self);
-				
 				// Deslocamento para posição alvo
 				x = lerp( x, _xposition, _spd);
 				y = lerp( y, _yposition, _spd);

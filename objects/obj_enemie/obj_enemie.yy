@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_enemie_1",
+  "%Name":"obj_enemie",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_enemie_1",
+  "name":"obj_enemie",
   "overriddenProperties":[],
   "parent":{
     "name":"Objects",
@@ -36,6 +36,7 @@
     {"$GMObjectProperty":"v2","%Name":"_leader","filters":[],"listItems":[],"multiselect":false,"name":"_leader","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"true","varType":3,},
     {"$GMObjectProperty":"v2","%Name":"_value","filters":[],"listItems":[],"multiselect":false,"name":"_value","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"100","varType":1,},
     {"$GMObjectProperty":"v2","%Name":"_drop_rate","filters":[],"listItems":[],"multiselect":false,"name":"_drop_rate","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"20","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"_enm_typ","filters":[],"listItems":[],"multiselect":false,"name":"_enm_typ","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"red","varType":2,},
   ],
   "resourceType":"GMObject",
   "resourceVersion":"2.0",

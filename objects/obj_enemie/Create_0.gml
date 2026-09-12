@@ -3,20 +3,24 @@
 // Variáveis
 
 
-_reward = random_range(0, 1); // Chance de drop para cada instancia.
+// Parametros gerais
+_skins = [spr_enemie1, spr_enemie2, spr_enemie3]; // Sprite do inimigo
+_bullet = [spr_enemie_shot1_c, spr_enemie_shot2_c, spr_enemie_shot3_c, spr_enemie_shot4_c]; // Sprite do projetil
+_clr = noone;
+_scl = noone;
+_mov = noone;
+_reward = random_range(0, 1); // Chance de drop para cada instancia
 _leaving = true; // Limitador de execução
 _shot_delay = 60; // Contado de spawn
 _shot_timer = 0; // Timer de tiro
 _state_timer = 0; // Timer de permanencia de estado
 _stay = 5; // Multiplicador de tempo de permanencia em segundos
 
-// Parametros de movimentação em orbita
+// Parametros específicos de movimentação em orbita
 _trgt = noone; // Alvo a ser seguido
 _dist= 70; // Raio da órbita em pixels
 _angl = 0; // Ângulo atual da órbita
 _orbit = 2; // Quantos graus gira por passo
-
-
 
 
 #region Metodos
@@ -33,14 +37,14 @@ HpDown = function(_dmg = 1)
 	} 
 }
 
-Attack = function()
+Attack = function(_typ = "Strait")
 {
 	
 	// Aplicação dos sistemas
 	if (_shot_timer > -1) { _shot_timer --; }
 	if (_shot_timer <= 0)
 	{
-		Projectile(spr_enemie_shot1_c, 5, 1, "Strait", 20, _dmg);
+		Projectile(_clr, _mov, _scl, _typ, 20, _dmg);
 		_shot_timer = (_shot_delay / _atk_spd);
 	}
 	
@@ -60,6 +64,44 @@ Enemie_Stm = function()
 	{
 		case "Enter" : // Movimentação inicial
 		{
+			// Inicialização o visual do inimigo
+			if (_enm_typ = "red") 
+			{
+				sprite_index = _skins[0];
+				_sht = "Strait";
+				_clr = _bullet[0];
+				_scl = 1;
+				_mov = 5;
+				
+			}
+			if (_enm_typ = "blue") 
+			{
+				sprite_index = _skins[1]
+				_sht = "Follow";
+				_clr = _bullet[1];
+				_scl = 1.5;
+				_mov = 7.5;
+			}
+			if (_enm_typ = "white") 
+			{
+				sprite_index = _skins[2]
+				image_xscale = 1.3;
+				image_yscale = 1.3;
+				_sht = choose("Follow", "Track");
+				if (_sht = "Follow") 
+				{
+					_clr = _bullet[2];
+					_scl = 1.7;
+					_mov = 7.5;
+				}
+				else if(_sht = "Track") 
+				{
+					_clr = _bullet[3];
+					_scl = 1.7;
+					_mov = 4;
+				}
+			}
+			
 			if(_leader) // Movimentação inicial do lider
 			{
 				// Registro da identificação do lider na variavel global.
@@ -76,15 +118,13 @@ Enemie_Stm = function()
 					_state_timer = _shot_delay * _stay;
 					_state = "Attack";
 				}
-			
-				// Movimentação inicial dos inimigos auxiliares
-				// Ainda a implementar
 			}
 			else 
 			{ 
 				//// Inicialização do ângulo e deslocamento para o lider
 				_trgt = global._ldr;
-				_angl = point_direction(_trgt.x, _trgt.y, x, y) 
+				if (instance_exists(_trgt)) {	_angl = point_direction(_trgt.x, _trgt.y, x, y) }
+				//_angl = point_direction(_trgt.x, _trgt.y, x, y) 
 				_state = "Orbit";
 			}
 			
@@ -102,7 +142,7 @@ Enemie_Stm = function()
 			//y = lerp( y, _yposition, _spd / 5);
 	
 			// Execução do ataque
-			Attack();
+			if (global._player_alive) { Attack(_sht); }
 			
 			// Atualização de estado apos a conclusão do movimento
 			if (round(x) = round(_xposition) && round(y) = round(_yposition)) 
@@ -130,16 +170,13 @@ Enemie_Stm = function()
 				y = lerp(y, _ang_y, .1);
 				
 				// Execução do ataque
-				if (global._player_alive)  {Attack(); }
+				if (global._player_alive)  { Attack(_sht); }
 			}
-			else { _state = choose("Reposition", "Leave"); }
-			
-			
-				
+			else { _state = "Leave"; }	
 		}
 		break;
 		
-		case "Attack" : // Ataque simples enquanto parado
+		case "Attack" : // Ataque enquanto parado
 		{
 			// Iniciando comportamento de ataque caso o player esteja vivo
 			if (global._player_alive)
@@ -148,7 +185,7 @@ Enemie_Stm = function()
 				if (_state_timer > -1) { _state_timer--; }
 			
 				// Execução do ataque
-				Attack();
+				Attack(_sht);  
 			}
 			
 			// Troca de estado
@@ -156,7 +193,23 @@ Enemie_Stm = function()
 			{
 				ResetPosition();
 				_state_timer = _shot_delay * 5;
-				_state = choose("Hover", "Reposition", "Leave");
+				if (_enm_typ = "red") { _state = choose("Hover", "Reposition", "Leave"); } 
+				if (_enm_typ = "blue") { _state = choose("Reposition", "Leave"); } 
+				if (_enm_typ = "white") 
+				{ 
+					_sht = choose("Follow", "Track");
+					if (_sht = "Follow") 
+					{
+						_clr = _bullet[2];
+						_mov = 7.5;
+					}
+					else if(_sht = "Track") 
+					{
+						_clr = _bullet[3];
+						_mov = 4;
+					}
+					_state = choose("Reposition", "Hover"); 
+				} 
 			}
 			
 		}
